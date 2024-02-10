@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { HashRouter as Router, Route } from 'react-router-dom';
 
+import Form from '../Form/Form';
 import Header from '../Header/Header';
 import Feeling from '../Feeling/Feeling';
 
@@ -11,11 +12,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
+        <Form />
 
-        <Route path="/" exact>
+        {/* <Route path="/" exact>
           <Feeling />
-        </Route>
+        </Route> */}
       </Router>
     </div>
   );
