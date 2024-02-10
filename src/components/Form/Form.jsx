@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import Header from '../Header/Header';
 import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
 import Supported from '../Supported/Supported';
@@ -35,8 +34,23 @@ function Form() {
   return (
     <>
       <div className="form">
+        <div className="progressBar">
+          <div
+            style={{
+              width:
+                page === 0
+                  ? '20%'
+                  : page == 1
+                  ? '40%'
+                  : page == 2
+                  ? '60%'
+                  : page == 3
+                  ? '80%'
+                  : '100%',
+            }}
+          ></div>
+        </div>
         <div className="form-container">
-          <Header />
           <div className="titles">
             <h1>{pageTitles[page]} </h1>
             <div>{pageDisplay()}</div>

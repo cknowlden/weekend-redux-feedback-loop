@@ -9,8 +9,8 @@ function Feeling() {
         type="number"
         min={0}
         max={5}
-        pattern="[1-5]"
         value={score}
+        // placeholder="enter your score"
         onChange={(event) =>
           setScore((v) =>
             event.target.validity.valid ? event.target.value : v

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: lightsteelblue;
 }
 
 .App-header {
@@ -20,4 +21,21 @@
 
 h4 {
   font-style: italic;
+}
+
+.progressBar {
+  width: 400px;
+  height: 10px;
+  background-color: white;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border: 1px solid rgb(255, 232, 57);
+  text-align: center;
+  display: inline-block;
+}
+
+.progressBar div {
+  width: 20%;
+  height: 100%;
+  background-color: blueviolet;
 }

@@ -6,11 +6,12 @@ import Form from '../Form/Form';
 import Header from '../Header/Header';
 import Feeling from '../Feeling/Feeling';
 
-// import './App.css';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <Router>
         <Form />
 
