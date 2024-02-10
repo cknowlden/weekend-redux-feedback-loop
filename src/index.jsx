@@ -42,11 +42,7 @@ function addComment(state = '', action) {
 //COMBINE REVIEW
 function combineReview(state = [], action) {
   if (action.type === 'COMBINE_REVIEW') {
-    const newReview = {
-      ...action.payload,
-    };
-
-    return [...state, newReview];
+    return action.payload;
   }
   return state;
 }

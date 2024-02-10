@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -14,7 +13,7 @@ function Review() {
   );
   const reviewSupport = useSelector((store) => store.addSupport.support);
   const reviewComment = useSelector((store) => store.addComment.comment);
-  // console.log('review feeling', reviewFeeling);
+  const totalReview = useSelector((store) => store.combineReview);
 
   const sendReview = () => {
     history.push('/submitted');
@@ -23,12 +22,12 @@ function Review() {
 
   const combineReview = () => {
     dispatch({
-      type: 'FEEDBACK_LIST_ADD',
+      type: 'COMBINE_REVIEW',
       payload: {
-        feeling: 1,
-        understanding: 2,
-        support: 3,
-        comments: 'dummy test info',
+        feeling: reviewFeeling,
+        understanding: reviewUnderstanding,
+        support: reviewSupport,
+        comments: reviewComment,
       },
     });
   };
@@ -36,15 +35,21 @@ function Review() {
     sendReview();
     combineReview();
     event.preventDefault();
+    console.log('total review', totalReview);
 
-    // axios
-    //   .post('/api/feedback/submit', { title, author })
-    //   .then((response) => {
-    //     alert('feedback submitted!');
-    //   })
-    //   .catch((error) => {
-    //     console.log('ERROR:', error);
-    //   });
+    axios
+      .post('/api/feedback', {
+        reviewFeeling,
+        reviewUnderstanding,
+        reviewSupport,
+        reviewComment,
+      })
+      .then((response) => {
+        alert('feedback submitted!');
+      })
+      .catch((error) => {
+        console.log('ERROR:', error);
+      });
   };
 
   return (
