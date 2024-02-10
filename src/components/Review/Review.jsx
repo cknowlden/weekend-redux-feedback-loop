@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import axios from 'axios';
 
 function Review() {
   const dispatch = useDispatch();
@@ -16,6 +17,14 @@ function Review() {
         comments: 'dummy test info',
       },
     });
+    axios
+      .post('/api/books', { title, author })
+      .then((response) => {
+        alert('feedback submitted!');
+      })
+      .catch((error) => {
+        console.log('ERROR:', error);
+      });
   };
 
   return (

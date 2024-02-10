@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../modules/pool');
 
 // TODO: This route adds a new feedback entry
-router.post('/', (req, res) => {
+router.post('/submit', (req, res) => {
   console.log(`POST /submit req.body:`, req.body);
   const sqlText = `
     INSERT INTO "feedback"
