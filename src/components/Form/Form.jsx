@@ -12,7 +12,7 @@ function Form() {
   const [page, setPage] = useState(0);
   const pathFeeling = "'/'";
 
-  console.log('path', pathFeeling);
+  // console.log('path', pathFeeling);
   const pageTitles = [
     'How are you feeling today?',
     'How well are you understanding the content?',
@@ -21,53 +21,53 @@ function Form() {
     'Review Your Feedback',
   ];
 
-  // const pageDisplay = () => {
-  //   if (page === 0) {
-  //     return <Feeling />;
-  //   } else if (page === 1) {
-  //     return <Understanding />;
-  //   } else if (page === 2) {
-  //     return <Supported />;
-  //   } else if (page === 3) {
-  //     return <Comments />;
-  //   } else {
-  //     return <Review />;
-  //   }
-  // };
-
   const pageDisplay = () => {
     if (page === 0) {
-      return (
-        <Route path={pathFeeling} exact>
-          <Feeling />
-        </Route>
-      );
+      return <Feeling />;
     } else if (page === 1) {
-      return (
-        <Route path="/understanding" exact>
-          <Understanding />
-        </Route>
-      );
+      return <Understanding />;
     } else if (page === 2) {
-      return (
-        <Route path="/supported" exact>
-          <Supported />
-        </Route>
-      );
+      return <Supported />;
     } else if (page === 3) {
-      return (
-        <Route path="/comments" exact>
-          <Comments />
-        </Route>
-      );
+      return <Comments />;
     } else {
-      return (
-        <Route path="/review" exact>
-          <Review />
-        </Route>
-      );
+      return <Review />;
     }
   };
+
+  // const pageDisplay = () => {
+  //   if (page === 0) {
+  //     return (
+  //       <Route path={pathFeeling} exact>
+  //         <Feeling />
+  //       </Route>
+  //     );
+  //   } else if (page === 1) {
+  //     return (
+  //       <Route path="/understanding" exact>
+  //         <Understanding />
+  //       </Route>
+  //     );
+  //   } else if (page === 2) {
+  //     return (
+  //       <Route path="/supported" exact>
+  //         <Supported />
+  //       </Route>
+  //     );
+  //   } else if (page === 3) {
+  //     return (
+  //       <Route path="/comments" exact>
+  //         <Comments />
+  //       </Route>
+  //     );
+  //   } else {
+  //     return (
+  //       <Route path="/review" exact>
+  //         <Review />
+  //       </Route>
+  //     );
+  //   }
+  // };
 
   const history = useHistory();
 

@@ -25,7 +25,7 @@ function addFeedback(
 
 const store = createStore(
   combineReducers({
-    addScore,
+    addFeedback,
   }),
   applyMiddleware(logger)
 );

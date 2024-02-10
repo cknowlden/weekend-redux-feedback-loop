@@ -12,13 +12,14 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Router>
-        <Form />
+      {/* <Router> */}
+      <Form />
 
-        {/* <Route path="/" exact>
+      {/* <Route path="/" exact>
           <Feeling />
-        </Route> */}
-      </Router>
+        </Route>
+        
+      </Router> */}
     </div>
   );
 }
