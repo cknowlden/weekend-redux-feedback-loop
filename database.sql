@@ -10,7 +10,7 @@ CREATE TABLE "feedback" (
   "comments" text,
   "flagged" boolean default false,
   "date" date not null default CURRENT_DATE
-); 
+);
 
 -- Sample feedback item
 INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
