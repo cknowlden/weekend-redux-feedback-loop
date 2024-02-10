@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 function Feeling() {
+  const [score, setScore] = useState('');
   return (
     <div>
       <h1>How are you feeling today?</h1>
@@ -9,10 +10,14 @@ function Feeling() {
         <h4>Feeling?</h4>
         <input
           type="number"
-          pattern="[1-5]*"
-          value={val}
-          onChange={(e) =>
-            setVal((v) => (e.target.validity.valid ? e.target.value : v))
+          min={0}
+          max={5}
+          pattern="[1-5]"
+          value={score}
+          onChange={(event) =>
+            setScore((v) =>
+              event.target.validity.valid ? event.target.value : v
+            )
           }
         />
       </div>
