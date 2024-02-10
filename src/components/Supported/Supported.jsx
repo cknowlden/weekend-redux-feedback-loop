@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 function Supported() {
   const [scoreSupported, setScoreSupported] = useState('');
+  const history = useHistory();
+
+  const sendSupported = () => {
+    history.push('/comments');
+  };
   return (
     <div data-testid="input">
       <h4>Supported?</h4>
@@ -16,6 +23,7 @@ function Supported() {
           )
         }
       />
+      <button onClick={sendSupported}>NEXT</button>
     </div>
   );
 }

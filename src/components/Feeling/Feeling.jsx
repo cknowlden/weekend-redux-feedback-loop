@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 function Feeling() {
   const [scoreFeeling, setScoreFeeling] = useState('');
+  const history = useHistory();
+
+  const sendFeeling = () => {
+    history.push('/understanding');
+  };
   return (
     <div data-testid="input">
       <h4>Feeling?</h4>
@@ -16,6 +23,7 @@ function Feeling() {
           )
         }
       />
+      <button onClick={sendFeeling}>NEXT</button>
     </div>
   );
 }

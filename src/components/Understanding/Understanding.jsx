@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 function Understanding() {
   const [scoreUnderstanding, setScoreUnderstanding] = useState('');
+  const history = useHistory();
+
+  const sendUnderstanding = () => {
+    history.push('/supported');
+  };
   return (
     <div data-testid="input">
       <h4>Understanding?</h4>
@@ -16,6 +23,7 @@ function Understanding() {
           )
         }
       />
+      <button onClick={sendUnderstanding}>NEXT</button>
     </div>
   );
 }
