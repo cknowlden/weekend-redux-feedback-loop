@@ -8,12 +8,12 @@ function Feeling() {
   const dispatch = useDispatch();
 
   const sendFeeling = () => {
-    event.preventDefault();
     history.push('/understanding');
-    handleSubmitFeeling();
   };
 
-  const handleSubmitFeeling = () => {
+  const handleSubmitFeeling = (event) => {
+    sendFeeling();
+    event.preventDefault();
     dispatch({
       type: 'ADD_FEELING',
       payload: {
@@ -35,7 +35,7 @@ function Feeling() {
           )
         }
       />
-      <button onClick={sendFeeling}>NEXT</button>
+      <button onClick={handleSubmitFeeling}>NEXT</button>
     </div>
   );
 }

@@ -29,10 +29,28 @@ function addUnderstanding(state = '', action) {
   return state;
 }
 
+//SUPPORT REDUCER
+function addSupport(state = '', action) {
+  if (action.type === 'ADD_SUPPORTED') {
+    return action.payload;
+  }
+  return state;
+}
+
+//SUPPORT COMMENTS
+function addComment(state = '', action) {
+  if (action.type === 'ADD_COMMENT') {
+    return action.payload;
+  }
+  return state;
+}
+
 const store = createStore(
   combineReducers({
     addFeeling,
     addUnderstanding,
+    addSupport,
+    addComment,
   }),
   applyMiddleware(logger)
 );

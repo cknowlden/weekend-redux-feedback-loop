@@ -5,9 +5,20 @@ import { useDispatch } from 'react-redux';
 function Comments() {
   const [comment, setComment] = useState('');
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const sendComments = () => {
     history.push('/review');
+  };
+  const handleSubmitFeeling = (event) => {
+    sendComments();
+    event.preventDefault();
+    dispatch({
+      type: 'ADD_COMMENT',
+      payload: {
+        comment: comment,
+      },
+    });
   };
   return (
     <div data-testid="input">
@@ -20,7 +31,7 @@ function Comments() {
           )
         }
       />
-      <button onClick={sendComments}>NEXT</button>
+      <button onClick={handleSubmitFeeling}>NEXT</button>
     </div>
   );
 }
