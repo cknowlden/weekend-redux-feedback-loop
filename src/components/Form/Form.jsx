@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
@@ -8,7 +10,9 @@ import Review from '../Review/Review';
 
 function Form() {
   const [page, setPage] = useState(0);
+  const pathFeeling = "'/'";
 
+  console.log('path', pathFeeling);
   const pageTitles = [
     'How are you feeling today?',
     'How well are you understanding the content?',
@@ -17,18 +21,60 @@ function Form() {
     'Review Your Feedback',
   ];
 
+  // const pageDisplay = () => {
+  //   if (page === 0) {
+  //     return <Feeling />;
+  //   } else if (page === 1) {
+  //     return <Understanding />;
+  //   } else if (page === 2) {
+  //     return <Supported />;
+  //   } else if (page === 3) {
+  //     return <Comments />;
+  //   } else {
+  //     return <Review />;
+  //   }
+  // };
+
   const pageDisplay = () => {
     if (page === 0) {
-      return <Feeling />;
+      return (
+        <Route path={pathFeeling} exact>
+          <Feeling />
+        </Route>
+      );
     } else if (page === 1) {
-      return <Understanding />;
+      return (
+        <Route path="/understanding" exact>
+          <Understanding />
+        </Route>
+      );
     } else if (page === 2) {
-      return <Supported />;
+      return (
+        <Route path="/supported" exact>
+          <Supported />
+        </Route>
+      );
     } else if (page === 3) {
-      return <Comments />;
+      return (
+        <Route path="/comments" exact>
+          <Comments />
+        </Route>
+      );
     } else {
-      return <Review />;
+      return (
+        <Route path="/review" exact>
+          <Review />
+        </Route>
+      );
     }
+  };
+
+  const history = useHistory();
+
+  const handleClickNav = () => {
+    // Navigate with React Router Dom
+    alert('Clicked To Nav');
+    history.push({ pathFeeling });
   };
 
   return (
@@ -53,16 +99,20 @@ function Form() {
         <div className="form-container">
           <div className="titles">
             <h1>{pageTitles[page]} </h1>
-            <div>{pageDisplay()}</div>
+            <Router>
+              <div>{pageDisplay()}</div>
+            </Router>
           </div>
           <div className="button">
             <button
               disabled={page == pageTitles.length - 1}
               onClick={() => {
                 setPage((currentPage) => currentPage + 1);
+                {
+                  handleClickNav;
+                }
               }}
             >
-              {' '}
               NEXT
             </button>
           </div>
