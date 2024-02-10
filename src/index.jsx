@@ -12,9 +12,7 @@ function addFeedback(
   action
 ) {
   if (action.type === 'FEEDBACK_LIST_ADD') {
-    // const id = state.length;
     const newFeedback = {
-      // id,
       ...action.payload,
     };
 

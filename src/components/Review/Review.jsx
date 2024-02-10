@@ -18,7 +18,7 @@ function Review() {
       },
     });
     axios
-      .post('/api/books', { title, author })
+      .post('/api/feedback/submit', { title, author })
       .then((response) => {
         alert('feedback submitted!');
       })

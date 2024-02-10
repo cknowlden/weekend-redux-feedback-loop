@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function Feeling() {
-  const [score, setScore] = useState('');
+  const [scoreFeeling, setScoreFeeling] = useState('');
   return (
     <div data-testid="input">
       <h4>Feeling?</h4>
@@ -9,10 +9,9 @@ function Feeling() {
         type="number"
         min={0}
         max={5}
-        value={score}
-        // placeholder="enter your score"
+        value={scoreFeeling}
         onChange={(event) =>
-          setScore((v) =>
+          setScoreFeeling((v) =>
             event.target.validity.valid ? event.target.value : v
           )
         }
