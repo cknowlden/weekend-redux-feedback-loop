@@ -10,12 +10,6 @@ import logger from 'redux-logger';
 //FEELING REDUCER
 function addFeeling(state = '', action) {
   if (action.type === 'ADD_FEELING') {
-    //   const newFeeling = {
-    //     ...action.payload,
-    //   };
-
-    //   return [...state, newFeeling];
-    // }
     return action.payload;
   }
   return state;
@@ -45,12 +39,25 @@ function addComment(state = '', action) {
   return state;
 }
 
+//COMBINE REVIEW
+function combineReview(state = [], action) {
+  if (action.type === 'COMBINE_REVIEW') {
+    const newReview = {
+      ...action.payload,
+    };
+
+    return [...state, newReview];
+  }
+  return state;
+}
+
 const store = createStore(
   combineReducers({
     addFeeling,
     addUnderstanding,
     addSupport,
     addComment,
+    combineReview,
   }),
   applyMiddleware(logger)
 );

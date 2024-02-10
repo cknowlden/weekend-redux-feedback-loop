@@ -21,18 +21,22 @@ function Review() {
     // alert('Your feedback has been submitted!');
   };
 
+  const combineReview = () => {
+    dispatch({
+      type: 'FEEDBACK_LIST_ADD',
+      payload: {
+        feeling: 1,
+        understanding: 2,
+        support: 3,
+        comments: 'dummy test info',
+      },
+    });
+  };
   const handleSubmit = (event) => {
     sendReview();
+    combineReview();
     event.preventDefault();
-    // dispatch({
-    //   type: 'FEEDBACK_LIST_ADD',
-    //   payload: {
-    //     feeling: 1,
-    //     understanding: 2,
-    //     support: 3,
-    //     comments: 'dummy test info',
-    //   },
-    // });
+
     // axios
     //   .post('/api/feedback/submit', { title, author })
     //   .then((response) => {
