@@ -5,16 +5,28 @@ import { useDispatch } from 'react-redux';
 function Feeling() {
   const [scoreFeeling, setScoreFeeling] = useState('');
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const sendFeeling = () => {
+    event.preventDefault();
     history.push('/understanding');
+    handleSubmitFeeling();
+  };
+
+  const handleSubmitFeeling = () => {
+    dispatch({
+      type: 'ADD_FEELING',
+      payload: {
+        feeling: parseInt(scoreFeeling),
+      },
+    });
   };
   return (
     <div data-testid="input">
       <h4>Feeling?</h4>
       <input
         type="number"
-        min={0}
+        min={1}
         max={5}
         value={scoreFeeling}
         onChange={(event) =>

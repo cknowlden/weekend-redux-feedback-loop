@@ -14,7 +14,7 @@ function Supported() {
       <h4>Supported?</h4>
       <input
         type="number"
-        min={0}
+        min={1}
         max={5}
         value={scoreSupported}
         onChange={(event) =>

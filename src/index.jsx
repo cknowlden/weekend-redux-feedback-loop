@@ -7,23 +7,32 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-function addFeedback(
-  state = [{ feeling: '', understanding: '', support: '', comments: '' }],
-  action
-) {
-  if (action.type === 'FEEDBACK_LIST_ADD') {
-    const newFeedback = {
-      ...action.payload,
-    };
+//FEELING REDUCER
+function addFeeling(state = '', action) {
+  if (action.type === 'ADD_FEELING') {
+    //   const newFeeling = {
+    //     ...action.payload,
+    //   };
 
-    return [...state, newFeedback];
+    //   return [...state, newFeeling];
+    // }
+    return action.payload;
+  }
+  return state;
+}
+
+//UNDERSTANDING REDUCER
+function addUnderstanding(state = '', action) {
+  if (action.type === 'ADD_UNDERSTANDING') {
+    return action.payload;
   }
   return state;
 }
 
 const store = createStore(
   combineReducers({
-    addFeedback,
+    addFeeling,
+    addUnderstanding,
   }),
   applyMiddleware(logger)
 );

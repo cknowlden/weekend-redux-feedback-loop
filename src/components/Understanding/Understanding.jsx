@@ -5,16 +5,29 @@ import { useDispatch } from 'react-redux';
 function Understanding() {
   const [scoreUnderstanding, setScoreUnderstanding] = useState('');
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const sendUnderstanding = () => {
     history.push('/supported');
   };
+
+  const handleSubmitUnderstanding = (event) => {
+    sendUnderstanding();
+    event.preventDefault();
+    dispatch({
+      type: 'ADD_UNDERSTANDING',
+      payload: {
+        understanding: parseInt(scoreUnderstanding),
+      },
+    });
+  };
+
   return (
     <div data-testid="input">
       <h4>Understanding?</h4>
       <input
         type="number"
-        min={0}
+        min={1}
         max={5}
         value={scoreUnderstanding}
         onChange={(event) =>
@@ -23,7 +36,7 @@ function Understanding() {
           )
         }
       />
-      <button onClick={sendUnderstanding}>NEXT</button>
+      <button onClick={handleSubmitUnderstanding}>NEXT</button>
     </div>
   );
 }
