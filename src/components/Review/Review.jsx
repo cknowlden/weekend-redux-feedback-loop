@@ -7,42 +7,42 @@ import axios from 'axios';
 function Review() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const reviewFeeling = useSelector((store) => store.addFeeling.feeling);
-  const reviewUnderstanding = useSelector(
+  const feeling = useSelector((store) => store.addFeeling.feeling);
+  const understanding = useSelector(
     (store) => store.addUnderstanding.understanding
   );
-  const reviewSupport = useSelector((store) => store.addSupport.support);
-  const reviewComment = useSelector((store) => store.addComment.comment);
-  const totalReview = useSelector((store) => store.combineReview);
+  const support = useSelector((store) => store.addSupport.support);
+  const comments = useSelector((store) => store.addComment.comment);
+  // const totalReview = useSelector((store) => store.combineReview);
 
   const sendReview = () => {
     history.push('/submitted');
     // alert('Your feedback has been submitted!');
   };
 
-  const combineReview = () => {
-    dispatch({
-      type: 'COMBINE_REVIEW',
-      payload: {
-        feeling: reviewFeeling,
-        understanding: reviewUnderstanding,
-        support: reviewSupport,
-        comments: reviewComment,
-      },
-    });
-  };
+  // const combineReview = () => {
+  //   dispatch({
+  //     type: 'COMBINE_REVIEW',
+  //     payload: {
+  //       feeling: feeling,
+  //       understanding: understanding,
+  //       support: support,
+  //       comments: comment,
+  //     },
+  //   });
+  // };
   const handleSubmit = (event) => {
     sendReview();
-    combineReview();
+    // combineReview();
     event.preventDefault();
-    console.log('total review', totalReview);
+    // console.log('total review', totalReview);
 
     axios
       .post('/api/feedback', {
-        reviewFeeling,
-        reviewUnderstanding,
-        reviewSupport,
-        reviewComment,
+        feeling,
+        understanding,
+        support,
+        comments,
       })
       .then((response) => {
         alert('feedback submitted!');
@@ -54,10 +54,10 @@ function Review() {
 
   return (
     <div>
-      <h3>Feelings: {reviewFeeling}</h3>
-      <h3>Understanding: {reviewUnderstanding}</h3>
-      <h3>Support: {reviewSupport}</h3>
-      <h3>Comments: {reviewComment} </h3>
+      <h3>Feelings: {feeling}</h3>
+      <h3>Understanding: {understanding}</h3>
+      <h3>Support: {support}</h3>
+      <h3>Comments: {comments} </h3>
       <button onClick={handleSubmit}>SUBMIT</button>
     </div>
   );

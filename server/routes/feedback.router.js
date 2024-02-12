@@ -25,7 +25,6 @@ router.post('/', (req, res) => {
     })
     .catch((dbErr) => {
       console.log(`Error adding new feedback`, dbErr);
-      alert('error adding feedback to database');
       res.sendStatus(500);
     });
 });

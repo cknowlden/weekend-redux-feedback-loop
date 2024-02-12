@@ -39,7 +39,11 @@ function Feeling() {
             )
           }
         />
-        <button className="button" onClick={handleSubmitFeeling}>
+        <button
+          className="button"
+          onClick={handleSubmitFeeling}
+          data-testid="next"
+        >
           NEXT
         </button>
       </div>

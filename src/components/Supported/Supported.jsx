@@ -37,7 +37,11 @@ function Supported() {
             )
           }
         />
-        <button className="button" onClick={handleSubmitSupported}>
+        <button
+          className="button"
+          onClick={handleSubmitSupported}
+          data-testid="next"
+        >
           NEXT
         </button>
       </div>

@@ -38,7 +38,11 @@ function Understanding() {
             )
           }
         />
-        <button className="button" onClick={handleSubmitUnderstanding}>
+        <button
+          className="button"
+          onClick={handleSubmitUnderstanding}
+          data-testid="next"
+        >
           NEXT
         </button>
       </div>

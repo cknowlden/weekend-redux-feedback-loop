@@ -8,6 +8,7 @@ function Submitted() {
         <h4>
           <i>Thank you!</i>
         </h4>
+        <button>Leave New Feedback</button>
       </div>
     </>
   );
