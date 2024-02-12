@@ -24,19 +24,24 @@ function Understanding() {
 
   return (
     <div data-testid="input">
-      <h4>Understanding?</h4>
-      <input
-        type="number"
-        min={1}
-        max={5}
-        value={scoreUnderstanding}
-        onChange={(event) =>
-          setScoreUnderstanding((v) =>
-            event.target.validity.valid ? event.target.value : v
-          )
-        }
-      />
-      <button onClick={handleSubmitUnderstanding}>NEXT</button>
+      <h3 className="title">How well are you understanding the content?</h3>
+      <h4 className="body-header">Understanding?</h4>
+      <div className="body">
+        <input
+          type="number"
+          min={1}
+          max={5}
+          value={scoreUnderstanding}
+          onChange={(event) =>
+            setScoreUnderstanding((v) =>
+              event.target.validity.valid ? event.target.value : v
+            )
+          }
+        />
+        <button className="button" onClick={handleSubmitUnderstanding}>
+          NEXT
+        </button>
+      </div>
     </div>
   );
 }

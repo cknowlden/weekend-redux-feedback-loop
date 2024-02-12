@@ -23,19 +23,24 @@ function Supported() {
   };
   return (
     <div data-testid="input">
-      <h4>Supported?</h4>
-      <input
-        type="number"
-        min={1}
-        max={5}
-        value={scoreSupported}
-        onChange={(event) =>
-          setScoreSupported((v) =>
-            event.target.validity.valid ? event.target.value : v
-          )
-        }
-      />
-      <button onClick={handleSubmitSupported}>NEXT</button>
+      <h3 className="title">How well are you being supported?</h3>
+      <h4 className="body-header">Supported?</h4>
+      <div className="body">
+        <input
+          type="number"
+          min={1}
+          max={5}
+          value={scoreSupported}
+          onChange={(event) =>
+            setScoreSupported((v) =>
+              event.target.validity.valid ? event.target.value : v
+            )
+          }
+        />
+        <button className="button" onClick={handleSubmitSupported}>
+          NEXT
+        </button>
+      </div>
     </div>
   );
 }

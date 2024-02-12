@@ -22,16 +22,21 @@ function Comments() {
   };
   return (
     <div data-testid="input">
-      <h4>Comments</h4>
-      <textarea
-        value={comment}
-        onChange={(event) =>
-          setComment((v) =>
-            event.target.validity.valid ? event.target.value : v
-          )
-        }
-      />
-      <button onClick={handleSubmitFeeling}>NEXT</button>
+      <h3 className="title">Any comments you want to leave?</h3>
+      <h4 className="body-header">Comments</h4>
+      <div className="body">
+        <textarea
+          value={comment}
+          onChange={(event) =>
+            setComment((v) =>
+              event.target.validity.valid ? event.target.value : v
+            )
+          }
+        />
+        <button className="button" onClick={handleSubmitFeeling}>
+          NEXT
+        </button>
+      </div>
     </div>
   );
 }
