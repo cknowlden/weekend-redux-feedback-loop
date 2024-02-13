@@ -21,11 +21,13 @@ function Comments() {
     });
   };
   return (
-    <div data-testid="input">
+    <div>
       <h3 className="title">Any comments you want to leave?</h3>
       <h4 className="body-header">Comments</h4>
       <div className="body">
         <textarea
+          data-testid="input"
+          className="input"
           value={comment}
           onChange={(event) =>
             setComment((v) =>

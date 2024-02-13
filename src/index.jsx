@@ -12,6 +12,9 @@ function addFeeling(state = '', action) {
   if (action.type === 'ADD_FEELING') {
     return action.payload;
   }
+  if (action.type === 'CLEAR') {
+    return '';
+  }
   return state;
 }
 
@@ -19,6 +22,9 @@ function addFeeling(state = '', action) {
 function addUnderstanding(state = '', action) {
   if (action.type === 'ADD_UNDERSTANDING') {
     return action.payload;
+  }
+  if (action.type === 'CLEAR') {
+    return '';
   }
   return state;
 }
@@ -28,6 +34,9 @@ function addSupport(state = '', action) {
   if (action.type === 'ADD_SUPPORTED') {
     return action.payload;
   }
+  if (action.type === 'CLEAR') {
+    return '';
+  }
   return state;
 }
 
@@ -36,13 +45,8 @@ function addComment(state = '', action) {
   if (action.type === 'ADD_COMMENT') {
     return action.payload;
   }
-  return state;
-}
-
-//COMBINE REVIEW
-function combineReview(state = [], action) {
-  if (action.type === 'COMBINE_REVIEW') {
-    return action.payload;
+  if (action.type === 'CLEAR') {
+    return '';
   }
   return state;
 }
@@ -53,7 +57,6 @@ const store = createStore(
     addUnderstanding,
     addSupport,
     addComment,
-    combineReview,
   }),
   applyMiddleware(logger)
 );

@@ -1,4 +1,11 @@
+import { useHistory } from 'react-router-dom';
+
 function Submitted() {
+  const history = useHistory();
+
+  const startOver = () => {
+    history.push('/');
+  };
   return (
     <>
       <div className="lastFeedback">
@@ -8,7 +15,9 @@ function Submitted() {
         <h4>
           <i>Thank you!</i>
         </h4>
-        <button>Leave New Feedback</button>
+        <button onClick={startOver} data-testid="next">
+          Leave New Feedback
+        </button>
       </div>
     </>
   );

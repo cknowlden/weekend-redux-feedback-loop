@@ -22,11 +22,13 @@ function Supported() {
     });
   };
   return (
-    <div data-testid="input">
+    <div>
       <h3 className="title">How well are you being supported?</h3>
       <h4 className="body-header">Supported?</h4>
       <div className="body">
         <input
+          data-testid="input"
+          className="input"
           type="number"
           min={1}
           max={5}

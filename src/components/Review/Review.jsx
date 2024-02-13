@@ -13,29 +13,15 @@ function Review() {
   );
   const support = useSelector((store) => store.addSupport.support);
   const comments = useSelector((store) => store.addComment.comment);
-  // const totalReview = useSelector((store) => store.combineReview);
 
   const sendReview = () => {
     history.push('/submitted');
-    // alert('Your feedback has been submitted!');
   };
 
-  // const combineReview = () => {
-  //   dispatch({
-  //     type: 'COMBINE_REVIEW',
-  //     payload: {
-  //       feeling: feeling,
-  //       understanding: understanding,
-  //       support: support,
-  //       comments: comment,
-  //     },
-  //   });
-  // };
   const handleSubmit = (event) => {
     sendReview();
-    // combineReview();
+
     event.preventDefault();
-    // console.log('total review', totalReview);
 
     axios
       .post('/api/feedback', {
@@ -53,12 +39,14 @@ function Review() {
   };
 
   return (
-    <div>
+    <div data-testid="input">
       <h3>Feelings: {feeling}</h3>
       <h3>Understanding: {understanding}</h3>
       <h3>Support: {support}</h3>
       <h3>Comments: {comments} </h3>
-      <button onClick={handleSubmit}>SUBMIT</button>
+      <button onClick={handleSubmit} data-testid="next">
+        SUBMIT
+      </button>
     </div>
   );
 }

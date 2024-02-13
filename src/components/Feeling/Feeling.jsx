@@ -23,11 +23,12 @@ function Feeling() {
     });
   };
   return (
-    <div data-testid="input">
+    <div>
       <h3 className="title">How are you feeling today?</h3>
       <h4 className="body-header">Feeling?</h4>
       <div className="body">
         <input
+          data-testid="input"
           className="input"
           type="number"
           min={1}
