@@ -1,9 +1,15 @@
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 function Submitted() {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const startOver = () => {
+    //DISPATCH ACTION CLEAR ALL
+    dispatch({
+      type: 'CLEAR',
+    });
     history.push('/');
   };
   return (
